@@ -17,3 +17,21 @@ Stand up a lightweight evaluation harness that computes precision/F1 for the ext
 
 6. Sustainability-inclusive evaluation
 Instrument one existing training or inference run with energy/carbon tracking (e.g., codecarbon or experiment-impact-tracker) and report compute-cost vs. accuracy tradeoffs as a baseline for future efficiency targets.
+
+---
+
+Task 1 Detail: Geospatial semantic embedding (multimodal)
+
+The idea is to build a small end-to-end proof-of-concept that embeds geospatial imagery and its associated text/metadata into a shared vector space, so you can search across modalities (e.g., find an image tile by describing it in text, or vice versa).
+
+Why this task first: It's a good onboarding task because it's self-contained, doesn't require deep familiarity with the rest of the codebase yet, and forces you to touch the actual geospatial data the project works with early on.
+
+Suggested steps:
+1. Get a sample dataset. Pull a small subset of the project's geospatial data — satellite/aerial imagery tiles paired with descriptive text or metadata (captions, location names, land-use tags, etc.).
+2. Pick a pretrained multimodal model. Start with something off-the-shelf rather than training from scratch — CLIP, or a remote-sensing-specific variant if one exists (e.g., RemoteCLIP, GeoCLIP, SkyCLIP) tend to perform much better on satellite imagery than generic CLIP.
+3. Embed both modalities. Run the image encoder over your image tiles and the text encoder over the paired metadata/captions, producing vectors in the same space.
+4. Build a tiny retrieval index. Store the embeddings (a flat numpy array or FAISS index is enough at this scale).
+5. Sanity-check retrieval. Query with a text description ("flooded agricultural field") and confirm the nearest image embeddings make sense — and the reverse (image to nearest text).
+6. Write up findings. Note where retrieval fails (e.g., ambiguous terrain, rare classes) — this becomes useful signal for whether the project needs a domain-adapted encoder rather than a generic one (ties into Task 3).
+
+Deliverable: a short script/notebook plus a few example queries with results, plus notes on embedding quality and any domain gaps observed.
