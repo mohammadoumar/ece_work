@@ -1,0 +1,19 @@
+Onboarding Task Suggestions — One per Work Profile Area
+
+1. Geospatial semantic embedding (multimodal)
+Take a small sample of the project's geospatial data (imagery + text/metadata pairs) and build a minimal pipeline that embeds both modalities into a shared vector space using an existing pretrained model (e.g., CLIP-style), then sanity-check retrieval (query by text, get back the right image tile or vice versa).
+
+2. Document extraction and knowledge integration
+Pick a handful of representative source documents, extract entities/relations with the project's current extraction tool (or a baseline like spaCy/LLM-based extraction), and map the results onto the existing ontology/knowledge graph schema to find where the schema is missing coverage.
+
+3. Domain adaptation/fine-tuning and model optimization
+Fine-tune (or LoRA-tune) a small base model on a narrow slice of in-domain data and compare its outputs against the base model on a handful of held-out examples, to establish a baseline adaptation workflow.
+
+4. Model merging research
+Reproduce a basic SLERP or DARE-TIES merge between two checkpoints (e.g., a base model and a fine-tuned variant) using an existing library (e.g., mergekit), and evaluate the merged model against both parents on a small task set.
+
+5. Benchmarking and metrics
+Stand up a lightweight evaluation harness that computes precision/F1 for the extraction pipeline on a labeled sample set, so there's a repeatable metric to compare future extraction/merging changes against.
+
+6. Sustainability-inclusive evaluation
+Instrument one existing training or inference run with energy/carbon tracking (e.g., codecarbon or experiment-impact-tracker) and report compute-cost vs. accuracy tradeoffs as a baseline for future efficiency targets.

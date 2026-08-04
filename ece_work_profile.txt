@@ -1,0 +1,11 @@
+Designing, adapting, and evaluating multimodal artificial intelligence models for knowledge extraction and integration, while contributing to research, performance optimization, sustainability, and scientific valorization.
+
+
+Key responsibilities (non-exhaustive list):
+• Geospatial semantic embedding (multimodal).
+• Document extraction and knowledge integration (knowledge graph/ontology).
+• Domain adaptation/fine-tuning and model optimization.
+• Research and engineering in model merging: implementation and evaluation of merging methods (e.g., DARE-TIES, SLERP-style interpolation, novel alternatives).
+• Benchmarking and metrics: precision/F1 score for extraction, fidelity (GraphRAG-style evaluation), and measurable efficiency targets (computational reduction with environmental monitoring).
+• Sustainability-inclusive evaluation.
+• Scientific output: contribution to publications, open science (where feasible), and technology transfer with consortium partners.
