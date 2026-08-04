@@ -35,3 +35,29 @@ Suggested steps:
 6. Write up findings. Note where retrieval fails (e.g., ambiguous terrain, rare classes) — this becomes useful signal for whether the project needs a domain-adapted encoder rather than a generic one (ties into Task 3).
 
 Deliverable: a short script/notebook plus a few example queries with results, plus notes on embedding quality and any domain gaps observed.
+
+---
+
+Step 1 Detail: Dataset for Task 1 (Geospatial semantic embedding)
+
+Recommended dataset: RSICD (Remote Sensing Image Captioning Dataset)
+- ~10,921 remote sensing images collected from Google Earth, Baidu Map, MapABC, and Tianditu.
+- Each image has up to 5 human-written captions (text metadata) describing the scene.
+- Images are 224x224 RGB, covering categories like airports, farmland, bridges, forests, etc.
+- Matches the "imagery + text pairs" format needed for Task 1.
+
+How to get it:
+- Easiest path, Hugging Face `datasets` library, no manual download/extraction needed:
+    from datasets import load_dataset
+    ds = load_dataset("arampacha/rsicd")
+  (alternative: "danielz01/rsicd" if that one has issues)
+- Original source repo (with links to Google Drive / Baidu Pan for raw files):
+  https://github.com/201528014227051/RSICD_optimal
+- Reference for later steps: published CLIP-RSICD fine-tuning example and walkthrough:
+  https://huggingface.co/flax-community/clip-rsicd-v2
+  https://huggingface.co/blog/fine-tune-clip-rsicd
+
+Suggested exploration once downloaded:
+- Load a handful of images and print their captions.
+- Check class/category balance (some categories are much more represented than others).
+- Note image resolution and any preprocessing needed before feeding into a CLIP-style encoder.
