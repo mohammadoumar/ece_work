@@ -61,3 +61,41 @@ Suggested exploration once downloaded:
 - Load a handful of images and print their captions.
 - Check class/category balance (some categories are much more represented than others).
 - Note image resolution and any preprocessing needed before feeding into a CLIP-style encoder.
+
+---
+
+Step 2 Detail: Pretrained model for Task 1 (Geospatial semantic embedding)
+
+Recommended model: RemoteCLIP
+- A vision-language foundation model for remote sensing, from the paper "RemoteCLIP: A Vision Language Foundation Model for Remote Sensing" (IEEE TGRS).
+- Built on the OpenCLIP architecture, fine-tuned on remote sensing image-text pairs (should embed RSICD much better than generic CLIP).
+- Available in three sizes: RN50, ViT-B-32, ViT-L-14. ViT-B-32 is a good starting point (smaller/faster than ViT-L-14, better than RN50).
+
+How to download it:
+    pip install open-clip-torch huggingface_hub
+
+    from huggingface_hub import hf_hub_download
+
+    checkpoint_path = hf_hub_download(
+        "chendelong/RemoteCLIP",
+        "RemoteCLIP-ViT-B-32.pt",
+        cache_dir="checkpoints"
+    )
+    print(f"Downloaded to {checkpoint_path}")
+
+How to load it with OpenCLIP:
+    import open_clip
+    import torch
+
+    model, _, preprocess = open_clip.create_model_and_transforms("ViT-B-32", pretrained=None)
+    tokenizer = open_clip.get_tokenizer("ViT-B-32")
+
+    ckpt = torch.load(checkpoint_path, map_location="cpu")
+    model.load_state_dict(ckpt)
+    model.eval()
+
+From there, encode RSICD images with model.encode_image(...) and captions with model.encode_text(...) to produce the shared embedding space needed for step 3.
+
+References:
+- https://github.com/ChenDelong1999/RemoteCLIP
+- https://huggingface.co/chendelong/RemoteCLIP
