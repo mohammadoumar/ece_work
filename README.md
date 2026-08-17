@@ -21,9 +21,9 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
 - `work_plan/` — planning documents.
   - `ece_work_profile.txt` — the original work profile for this role/project.
   - `onboarding_task_suggestions.txt` — one suggested onboarding task per responsibility area, with a detailed step-by-step breakdown for Task 1 (geospatial semantic embedding), including the recommended starter dataset (RSICD) and pretrained model (RemoteCLIP).
-- `notebooks/` — all working notebooks.
-  - `task1_geospatial.ipynb` — working notebook for Task 1: dataset loading, model loading, multimodal encoding, and cross-modal retrieval sanity checks.
-  - `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb` — other exploratory/setup notebooks.
+- `tasks/` — one subdirectory per numbered task, holding that task's notebook(s) and deliverables.
+  - `task1/task1_geospatial.ipynb` — Task 1 notebook: dataset loading, model loading, multimodal encoding, and cross-modal retrieval sanity checks.
+- `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task 1: Geospatial Semantic Embedding — Status: Done
 
