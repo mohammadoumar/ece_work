@@ -18,8 +18,9 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
 
 ## Files
 
-- `ece_work_profile.txt` — the original work profile for this role/project.
-- `onboarding_task_suggestions.txt` — one suggested onboarding task per responsibility area, with a detailed step-by-step breakdown for Task 1 (geospatial semantic embedding), including the recommended starter dataset (RSICD) and pretrained model (RemoteCLIP).
+- `work_plan/` — planning documents.
+  - `ece_work_profile.txt` — the original work profile for this role/project.
+  - `onboarding_task_suggestions.txt` — one suggested onboarding task per responsibility area, with a detailed step-by-step breakdown for Task 1 (geospatial semantic embedding), including the recommended starter dataset (RSICD) and pretrained model (RemoteCLIP).
 - `notebooks/` — all working notebooks.
   - `task1_geospatial.ipynb` — working notebook for Task 1: dataset loading, model loading, multimodal encoding, and cross-modal retrieval sanity checks.
   - `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb` — other exploratory/setup notebooks.
@@ -48,4 +49,4 @@ Built and verified a minimal end-to-end multimodal geospatial embedding pipeline
 
 ## Status
 
-Task 1 (geospatial semantic embedding) is complete and verified. Next up: one of the remaining onboarding tasks in `onboarding_task_suggestions.txt` (document extraction/knowledge integration, domain adaptation, model merging, benchmarking, or sustainability-inclusive evaluation).
+Task 1 (geospatial semantic embedding) is complete and verified. Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (document extraction/knowledge integration, domain adaptation, model merging, benchmarking, or sustainability-inclusive evaluation).
