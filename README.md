@@ -32,9 +32,9 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
 
 Built and verified a minimal multimodal embedding pipeline (RSICD dataset + RemoteCLIP model), with working text↔image cross-modal retrieval. Found and fixed a filename-parsing bug that was silently corrupting the category-based sanity checks. See [`tasks/task1/README.md`](tasks/task1/README.md) for full setup, results, and next steps.
 
-### [Task 2: Document Extraction and Knowledge Integration](tasks/task2/README.md) — Prototype done, evaluation harness has known gaps
+### [Task 2: Document Extraction and Knowledge Integration](tasks/task2/README.md) — Prototype done (entity extraction verified; relation extraction not yet attempted)
 
-Built a prototype extracting entities from documents (DocRED dataset) with a spaCy NER baseline, compared against DocRED's gold, Wikidata-mapped entities (82% match on the probe document). Found and fixed a dataset-loading break and a train/validation split-merging issue; identified (not yet fixed) that the gold-entity comparison only uses first-mention names, likely undercounting real matches. See [`tasks/task2/README.md`](tasks/task2/README.md) for full setup, results, and next steps.
+Built a prototype extracting entities from documents (DocRED dataset) with a spaCy NER baseline, compared against DocRED's gold, Wikidata-mapped entities (77% match on the probe document, counting all entity aliases). Found and fixed a dataset-loading break, a train/distant split-merging issue, and a gold-entity alias-blindness bug. See [`tasks/task2/README.md`](tasks/task2/README.md) for full setup, results, and next steps.
 
 ## Status
 
