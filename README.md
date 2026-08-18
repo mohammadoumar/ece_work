@@ -26,6 +26,7 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
   - [`task2/`](tasks/task2/README.md) — Document extraction and knowledge integration (DocRED + spaCy).
   - [`task3/`](tasks/task3/README.md) — Domain adaptation/fine-tuning (LoRA on CLIP, RSICD).
   - [`task4/`](tasks/task4/README.md) — Model merging research (SLERP on CLIP checkpoints).
+  - [`task5/`](tasks/task5/README.md) — Benchmarking and metrics (precision/recall/F1 harness for Task 2's extraction pipeline).
 - `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task Summaries
@@ -46,6 +47,10 @@ LoRA fine-tuned generic CLIP on a tiny RSICD subset (200 images, 1 epoch) and co
 
 Implemented SLERP directly (mergekit lacks `open_clip` support) to merge the base CLIP and Task 3's LoRA fine-tuned CLIP, sweeping the interpolation factor. The `t=0`/`t=1` boundary check confirmed the merge is implemented correctly, and purity rose smoothly across the sweep — but since the two parents differ by only a few LoRA-adapted tensors, this run proves the merge mechanics work without yet stress-testing genuinely divergent parents. See [`tasks/task4/README.md`](tasks/task4/README.md) for full setup, results, and next steps.
 
+### [Task 5: Benchmarking and Metrics](tasks/task5/README.md) — Prototype done, verified run
+
+Scaled Task 2's single-document entity extraction comparison into a real precision/recall/F1 harness run across 25 DocRED documents. Reproduced Task 2's original number exactly (confirming correctness) while revealing it was actually a recall figure, not F1 — aggregate F1 came out to 0.788–0.790, with real per-document variance (F1 std 0.106) that a single probe document couldn't have shown. See [`tasks/task5/README.md`](tasks/task5/README.md) for full setup, results, and next steps.
+
 ## Status
 
-Tasks 1–4 are underway (Task 1 complete, Tasks 2–4 prototype-complete with open refinements). Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (benchmarking/metrics, or sustainability-inclusive evaluation).
+Tasks 1–5 are underway (Task 1 complete, Tasks 2–5 prototype-complete with open refinements). Next up: the remaining onboarding task in `work_plan/onboarding_task_suggestions.txt` (sustainability-inclusive evaluation).
