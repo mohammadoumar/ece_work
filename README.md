@@ -25,6 +25,7 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
   - [`task1/`](tasks/task1/README.md) — Geospatial semantic embedding (RSICD + RemoteCLIP).
   - [`task2/`](tasks/task2/README.md) — Document extraction and knowledge integration (DocRED + spaCy).
   - [`task3/`](tasks/task3/README.md) — Domain adaptation/fine-tuning (LoRA on CLIP, RSICD).
+  - [`task4/`](tasks/task4/README.md) — Model merging research (SLERP on CLIP checkpoints).
 - `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task Summaries
@@ -41,6 +42,10 @@ Built a prototype extracting entities from documents (DocRED dataset) with a spa
 
 LoRA fine-tuned generic CLIP on a tiny RSICD subset (200 images, 1 epoch) and compared it against base CLIP and RemoteCLIP on held-out retrieval queries. All three tied on a coarse hit-rate metric, but the fine-tuned model showed a real, measurable improvement in retrieval purity — revealing that the metric itself is too coarse to capture small adaptation effects. See [`tasks/task3/README.md`](tasks/task3/README.md) for full setup, results, and next steps.
 
+### [Task 4: Model Merging Research](tasks/task4/README.md) — Prototype done, verified run
+
+Implemented SLERP directly (mergekit lacks `open_clip` support) to merge the base CLIP and Task 3's LoRA fine-tuned CLIP, sweeping the interpolation factor. The `t=0`/`t=1` boundary check confirmed the merge is implemented correctly, and purity rose smoothly across the sweep — but since the two parents differ by only a few LoRA-adapted tensors, this run proves the merge mechanics work without yet stress-testing genuinely divergent parents. See [`tasks/task4/README.md`](tasks/task4/README.md) for full setup, results, and next steps.
+
 ## Status
 
-Tasks 1, 2, and 3 are underway (Task 1 complete, Tasks 2 and 3 prototype-complete with open refinements). Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (model merging, benchmarking, or sustainability-inclusive evaluation).
+Tasks 1–4 are underway (Task 1 complete, Tasks 2–4 prototype-complete with open refinements). Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (benchmarking/metrics, or sustainability-inclusive evaluation).
