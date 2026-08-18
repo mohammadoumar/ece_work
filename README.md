@@ -24,6 +24,7 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
 - `tasks/` — one subdirectory per numbered task, holding that task's notebook(s), README, and deliverables.
   - [`task1/`](tasks/task1/README.md) — Geospatial semantic embedding (RSICD + RemoteCLIP).
   - [`task2/`](tasks/task2/README.md) — Document extraction and knowledge integration (DocRED + spaCy).
+  - [`task3/`](tasks/task3/README.md) — Domain adaptation/fine-tuning (LoRA on CLIP, RSICD).
 - `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task Summaries
@@ -36,6 +37,10 @@ Built and verified a minimal multimodal embedding pipeline (RSICD dataset + Remo
 
 Built a prototype extracting entities from documents (DocRED dataset) with a spaCy NER baseline, compared against DocRED's gold, Wikidata-mapped entities (77% match on the probe document, counting all entity aliases). Found and fixed a dataset-loading break, a train/distant split-merging issue, and a gold-entity alias-blindness bug. See [`tasks/task2/README.md`](tasks/task2/README.md) for full setup, results, and next steps.
 
+### [Task 3: Domain Adaptation/Fine-Tuning](tasks/task3/README.md) — Prototype done, verified run
+
+LoRA fine-tuned generic CLIP on a tiny RSICD subset (200 images, 1 epoch) and compared it against base CLIP and RemoteCLIP on held-out retrieval queries. All three tied on a coarse hit-rate metric, but the fine-tuned model showed a real, measurable improvement in retrieval purity — revealing that the metric itself is too coarse to capture small adaptation effects. See [`tasks/task3/README.md`](tasks/task3/README.md) for full setup, results, and next steps.
+
 ## Status
 
-Tasks 1 and 2 are underway (Task 1 complete, Task 2 prototype complete with open refinements). Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (domain adaptation, model merging, benchmarking, or sustainability-inclusive evaluation).
+Tasks 1, 2, and 3 are underway (Task 1 complete, Tasks 2 and 3 prototype-complete with open refinements). Next up: one of the remaining onboarding tasks in `work_plan/onboarding_task_suggestions.txt` (model merging, benchmarking, or sustainability-inclusive evaluation).
