@@ -27,6 +27,7 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
   - [`task3/`](tasks/task3/README.md) — Domain adaptation/fine-tuning (LoRA on CLIP, RSICD).
   - [`task4/`](tasks/task4/README.md) — Model merging research (SLERP on CLIP checkpoints).
   - [`task5/`](tasks/task5/README.md) — Benchmarking and metrics (precision/recall/F1 harness for Task 2's extraction pipeline).
+  - [`task6/`](tasks/task6/README.md) — Sustainability-inclusive evaluation (codecarbon instrumentation of Task 3's LoRA fine-tune).
 - `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task Summaries
@@ -51,6 +52,10 @@ Implemented SLERP directly (mergekit lacks `open_clip` support) to merge the bas
 
 Scaled Task 2's single-document entity extraction comparison into a real precision/recall/F1 harness run across 25 DocRED documents. Reproduced Task 2's original number exactly (confirming correctness) while revealing it was actually a recall figure, not F1 — aggregate F1 came out to 0.788–0.790, with real per-document variance (F1 std 0.106) that a single probe document couldn't have shown. See [`tasks/task5/README.md`](tasks/task5/README.md) for full setup, results, and next steps.
 
+### [Task 6: Sustainability-Inclusive Evaluation](tasks/task6/README.md) — Prototype done, verified run
+
+Instrumented Task 3's LoRA fine-tuning run with `codecarbon`, tracking baseline eval, training, and post-fine-tune eval as separate emissions stages. Training was ~2.4x longer and ~3.9x more energy-intensive than a single eval pass; the whole toy-scale experiment used about 0.074 Wh total, establishing a reusable cost-tracking pattern rather than a publishable absolute figure. See [`tasks/task6/README.md`](tasks/task6/README.md) for full setup, results, and next steps.
+
 ## Status
 
-Tasks 1–5 are underway (Task 1 complete, Tasks 2–5 prototype-complete with open refinements). Next up: the remaining onboarding task in `work_plan/onboarding_task_suggestions.txt` (sustainability-inclusive evaluation).
+All six onboarding tasks (Tasks 1–6) have a verified prototype (Task 1 complete; Tasks 2–6 prototype-complete with open refinements documented in each task's README). Onboarding phase is essentially done — future work would mean deepening one of these tasks (e.g. the open next-steps items) or moving to non-onboarding project work.
