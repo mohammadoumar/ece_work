@@ -28,6 +28,7 @@ Designing, adapting, and evaluating multimodal artificial intelligence models fo
   - [`task4/`](tasks/task4/README.md) — Model merging research (SLERP on CLIP checkpoints).
   - [`task5/`](tasks/task5/README.md) — Benchmarking and metrics (precision/recall/F1 harness for Task 2's extraction pipeline).
   - [`task6/`](tasks/task6/README.md) — Sustainability-inclusive evaluation (codecarbon instrumentation of Task 3's LoRA fine-tune).
+  - [`task7/`](tasks/task7/README.md) — Scientific output: a consolidated technical report drawing together Tasks 1–6.
 - `exploratory/` — general geospatial setup/exploration notebooks not tied to a specific numbered task: `colab_try.ipynb`, `leafmap.ipynb`, `raster_data.ipynb`, `sentinel-2.ipynb`, `setup_verification.ipynb`, `training_data.ipynb`.
 
 ## Task Summaries
@@ -56,6 +57,10 @@ Scaled Task 2's single-document entity extraction comparison into a real precisi
 
 Instrumented Task 3's LoRA fine-tuning run with `codecarbon`, tracking baseline eval, training, and post-fine-tune eval as separate emissions stages. Training was ~2.4x longer and ~3.9x more energy-intensive than a single eval pass; the whole toy-scale experiment used about 0.074 Wh total, establishing a reusable cost-tracking pattern rather than a publishable absolute figure. See [`tasks/task6/README.md`](tasks/task6/README.md) for full setup, results, and next steps.
 
+### [Task 7: Scientific Output](tasks/task7/README.md) — Done
+
+Consolidated Tasks 1–6 into a single technical report: methodology per task, cross-task findings not visible from any individual task README (a shared domain-adaptation pipeline, a "metric too coarse" problem found and fixed independently on both the retrieval and extraction sides, and demonstrated risk of single-example evaluation), limitations, open science notes, and future directions organized by theme. See [`tasks/task7/README.md`](tasks/task7/README.md) and the [full report](tasks/task7/technical_report.md).
+
 ## Status
 
-All six onboarding tasks (Tasks 1–6) have a verified prototype (Task 1 complete; Tasks 2–6 prototype-complete with open refinements documented in each task's README). Onboarding phase is essentially done — future work would mean deepening one of these tasks (e.g. the open next-steps items) or moving to non-onboarding project work.
+All seven onboarding tasks (Tasks 1–7) are complete. Tasks 1 and 7 are fully done; Tasks 2–6 have verified prototypes with open refinements documented in each task's README. Onboarding phase is complete — future work would mean deepening one of Tasks 1–6's open next-steps items or moving to non-onboarding project work.
